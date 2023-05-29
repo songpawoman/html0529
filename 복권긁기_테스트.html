@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width:200px;
+            height:200px;
+            background: red;
+            border:5px solid black;
+        }
+    </style>
+    <script>
+        let box;
+        let a=0.1;
+        let targetO=0;
+
+        function setBg(){
+            box.style.opacity=parseFloat(box.style.opacity)+a*(targetO - parseFloat(box.style.opacity));
+        }
+    
+        function loop(){
+            setBg();
+        }
+
+        function init(){
+            box = document.getElementById("box");
+            box.style.opacity=1;
+
+            setInterval("loop()", 10);
+        }
+
+        addEventListener("load", function(){
+            init();
+        });
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
